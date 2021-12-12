@@ -8,13 +8,13 @@
       </div>
       <div class="popular-movies py-4">
         <h1 class="uppercase text-lg text-yellow-600 font-semibold">
-          Popular Movies
+          Popular TV Shows
         </h1>
         <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8"
         >
           <div class="mt-8" v-for="popular in populars" v-bind:key="popular.id">
-            <router-link :to="{name: 'Show' , params: {movie_id: popular.id}, props: true}">
+            <router-link :to="{name: 'ShowTv' , params: {tv_id: popular.id}, props: true}">
               <img
                 :src="path + popular.poster_path"
                 alt="poster"
@@ -23,7 +23,7 @@
             </router-link>
             <div class="mt-2 text-sm">
               <a href="#" class="text-lg hover:text-gray-300">{{
-                popular.title
+                popular.name
               }}</a>
               <div class="flex items-center text-gray-400">
                 <span>
@@ -44,7 +44,7 @@
                 </span>
                 <span class="ml-1">{{ popular.vote_average * 10}}%</span>
                 <span class="mx-2">|</span>
-                <span>{{ popular.release_date }}</span>
+                <span>{{ popular.first_air_date }}</span>
               </div>
               <!-- <div v-for="genre in genres" v-bind:key="genre.id">
                 <div :if="popular.genre_ids == genre.id">
@@ -58,22 +58,22 @@
 
       <div class="popular-movies py-4 mt-20">
         <h1 class="uppercase text-lg text-yellow-600 font-semibold">
-          Now Playing
+          top rated
         </h1>
         <div
-          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4"
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8"
         >
-          <div class="mt-8" v-for="playing in playings" v-bind:key="playing.id">
-            <router-link :to="{name: 'Show' , params: {movie_id: playing.id}, props: true}">
+          <div class="mt-8" v-for="top in tops" v-bind:key="top.id">
+            <router-link :to="{name: 'ShowTv' , params: {tv_id: top.id}, props: true}">
               <img
-                :src="path + playing.poster_path"
+                :src="path + top.poster_path"
                 alt="poster"
                 class="hover:opacity-75 transition ease-in-out duration-150 rounded-lg"
               />
             </router-link>
             <div class="mt-2 text-sm">
               <a href="#" class="text-lg hover:text-gray-300">{{
-                playing.title
+                top.title
               }}</a>
               <div class="flex items-center text-gray-400">
                 <span>
@@ -92,9 +92,9 @@
                     />
                   </svg>
                 </span>
-                <span class="ml-1">{{ playing.vote_average * 10}}%</span>
+                <span class="ml-1">{{ top.vote_average * 10}}%</span>
                 <span class="mx-2">|</span>
-                <span>{{ playing.release_date }}</span>
+                <span>{{ top.first_air_date }}</span>
               </div>
             </div>
           </div>
@@ -113,8 +113,7 @@ export default {
     return {
       isLoading: false,
       populars: [],
-      playings: [],
-      genres: [],
+      tops: [],
       path: 'https://image.tmdb.org/t/p/w500/'
     };
   },
@@ -122,7 +121,7 @@ export default {
     this.isLoading = true;
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=5641e993ec87be68dc40f563fa1a125d"
+        "https://api.themoviedb.org/3/tv/popular?api_key=5641e993ec87be68dc40f563fa1a125d"
       )
       .then((response) => {
         this.isLoading = false;
@@ -132,19 +131,10 @@ export default {
 
        axios
       .get(
-        "https://api.themoviedb.org/3/genre/movie/list?api_key=5641e993ec87be68dc40f563fa1a125d"
+        "https://api.themoviedb.org/3/tv/top_rated?api_key=5641e993ec87be68dc40f563fa1a125d"
       )
       .then((response) => {
-        this.genres = response.data.genres;
-        console.log(response.data.genres);
-      });
-
-       axios
-      .get(
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=5641e993ec87be68dc40f563fa1a125d"
-      )
-      .then((response) => {
-        this.playings = response.data.results;
+        this.tops = response.data.results;
         console.log(response.data.results);
       });
   },
