@@ -29,7 +29,7 @@
           </span>
           <span class="ml-1">{{ tv.vote_average * 10 }}%</span>
           <span class="mx-2">|</span>
-          <span>{{ tv.release_date }}</span>
+          <span>{{ tv.first_air_date }}</span>
         </div>
         <p class="mt-4 text-gray-200">
           {{ tv.overview }}
@@ -68,7 +68,7 @@
     <div class="px-16 py-10">
       <h1 class="uppercase text-lg text-yellow-600 font-semibold">Casts</h1>
       <div
-        class="mt-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4"
+        class="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4"
       >
         <div v-for="cast in casts" v-bind:key="cast.id">
           <img :src="path + cast.profile_path" alt="cast" class="rounded-lg" />
@@ -84,7 +84,7 @@
         similar movies
       </h1>
       <div
-        class="mt-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6"
+        class="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6"
       >
         <div v-for="similar in similars" v-bind:key="similar.id">
           <img
@@ -115,13 +115,8 @@
               </span>
               <span class="ml-1">{{ similar.vote_average * 10 }}%</span>
               <span class="mx-2">|</span>
-              <span>{{ similar.release_date }}</span>
+              <span>{{ similar.first_air_date }}</span>
             </div>
-            <!-- <div v-for="genre in genres" v-bind:key="genre.id">
-                <div :if="popular.genre_ids == genre.id">
-                  <div>{{ genre.name }}</div>
-                </div>
-              </div> -->
           </div>
         </div>
       </div>

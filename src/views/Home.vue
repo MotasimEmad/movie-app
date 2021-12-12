@@ -61,7 +61,7 @@
           Now Playing
         </h1>
         <div
-          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-4"
         >
           <div class="mt-8" v-for="playing in playings" v-bind:key="playing.id">
             <router-link :to="{name: 'Show' , params: {movie_id: playing.id}, props: true}">

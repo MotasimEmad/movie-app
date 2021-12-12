@@ -61,7 +61,7 @@
           top rated
         </h1>
         <div
-          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8"
         >
           <div class="mt-8" v-for="top in tops" v-bind:key="top.id">
             <router-link :to="{name: 'ShowTv' , params: {tv_id: top.id}, props: true}">
