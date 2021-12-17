@@ -1,5 +1,5 @@
 <template>
-  <nav class="border-t-4 border-yellow-600">
+  <nav class="border-t-4 border-indigo-400">
     <div
       class="container mx-auto flex flex-row md:flex-row items-center justify-between px-8 py-4 lg:px-28"
     >
@@ -8,7 +8,7 @@
           <router-link to="/" class="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-yellow-600"
+              class="h-6 w-6 text-indigo-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -20,13 +20,13 @@
                 d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
               />
             </svg>
-            <h1 class="ml-1 font-bold ">Movies</h1>
+            <h1 class="ml-1 font-bold hover:text-indigo-400">Movies</h1>
           </router-link>
         </li>
-        <li class="hover:text-yellow-600 ml-6">
+        <li class="hover:text-indigo-400 ml-6">
           <router-link to="/">Movies</router-link>
         </li>
-        <li class="hover:text-yellow-600 ml-6">
+        <li class="hover:text-indigo-400 ml-6">
           <router-link to="/tv">TV Shows</router-link>
         </li>
       </ul>

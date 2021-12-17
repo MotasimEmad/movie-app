@@ -5,7 +5,8 @@ import store from "./store";
 import './index.css';
 
 import VueSpinners from 'vue-spinners'
-
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 Vue.use(VueSpinners)
 
 Vue.config.productionTip = false;

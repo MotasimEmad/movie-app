@@ -1,9 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Show from "../views/Show.vue";
+import MovieDetails from "../views/MovieDetails.vue";
 import TV from "../views/TV.vue";
-import ShowTv from "../views/Show_tv.vue";
+import ShowDetails from "../views/ShowDetails.vue";
 
 
 Vue.use(VueRouter);
@@ -15,9 +15,10 @@ const routes = [
     component: Home,
   },
   {
-    path: "/show",
-    name: "Show",
-    component: Show,
+    path: "/movie_details/:movie_id",
+    name: "MovieDetails",
+    component: MovieDetails,
+    props: true
   },
   {
     path: "/tv",
@@ -25,9 +26,10 @@ const routes = [
     component: TV,
   },
   {
-    path: "/show-tv",
-    name: "ShowTv",
-    component: ShowTv,
+    path: "/show_details/:show_id",
+    name: "ShowDetails",
+    component: ShowDetails,
+    props: true
   },
 ];
 

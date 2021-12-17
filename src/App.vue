@@ -1,5 +1,5 @@
 <template>
-  <div class="font-sans bg-gray-900 text-white">
+  <div class="font-sans bg-gray-900 text-white" id="app">
     <nav-component></nav-component>
     <footer-component></footer-component>
   </div>
