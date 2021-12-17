@@ -19,7 +19,7 @@
           >
             <div class="overlay">
               <div class="content col-md-7">
-                <h4>LATEST</h4>
+                <h4>Playing now</h4>
                 <h1>{{ result.title }}</h1>
                 <h5>
                   Rating : {{ result.vote_average }} |

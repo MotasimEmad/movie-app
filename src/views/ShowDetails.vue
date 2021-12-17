@@ -101,7 +101,7 @@
     </div>
     <div class="px-16 py-10">
       <h1 class="uppercase text-lg text-indigo-400 font-semibold">
-        similar movies
+        similar series
       </h1>
       <carousel
         :autoplay="true"
